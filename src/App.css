@@ -1,0 +1,760 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', sans-serif;
+  background-color: #1f2937;
+}
+
+/* Navbar Styles */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #1f2937; /* Dark gray to match show-somecar */
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 20;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+nav a {
+  color: #e5e7eb; /* Light gray for links */
+  font-size: 1.125rem;
+  font-weight: 600;
+  text-decoration: none;
+  margin: 0 1.5rem;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+nav a:hover {
+  color: #ffd700; /* Gold on hover to match theme */
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  nav {
+    padding: 1rem;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  nav a {
+    margin: 0.5rem 0;
+    font-size: 1rem;
+  }
+}
+
+/* Home Component Styles */
+.home-main-div {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  margin-top: 60px; /* Offset for fixed navbar */
+}
+
+.home-image {
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
+  transform: scale(1.1);
+  transition: transform 0.5s ease;
+}
+
+.home-main-div:hover .home-image {
+  transform: scale(1.15);
+}
+
+.home-second-div {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  max-width: 600px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 2rem;
+  z-index: 10;
+}
+
+@media (min-width: 768px) {
+  .home-second-div {
+    padding: 4rem;
+    width: 50%;
+  }
+}
+
+.home-second-div h1 {
+  color: #ffffff;
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  letter-spacing: -0.025em;
+}
+
+@media (min-width: 768px) {
+  .home-second-div h1 {
+    font-size: 3.5rem;
+  }
+}
+
+.home-second-div p:first-of-type {
+  color: #ffd700;
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+@media (min-width: 768px) {
+  .home-second-div p:first-of-type {
+    font-size: 1.5rem;
+  }
+}
+
+.home-second-div p:nth-of-type(2) {
+  color: #e5e7eb;
+  font-size: 1rem;
+  line-height: 1.75;
+  max-width: 500px;
+}
+
+@media (min-width: 768px) {
+  .home-second-div p:nth-of-type(2) {
+    font-size: 1.125rem;
+  }
+}
+
+.home-second-div button {
+  margin-top: 2rem;
+  padding: 0.75rem 2.5rem;
+  background: linear-gradient(90deg, #ffd700, #d4af37);
+  color: #1f2937;
+  font-weight: 700;
+  font-size: 1.125rem;
+  border-radius: 9999px;
+  width: fit-content;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  border: none;
+  cursor: pointer;
+}
+
+.home-second-div button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  background: linear-gradient(90deg, #d4af37, #ffd700);
+}
+
+.bg-gradient-overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.3));
+  z-index: 5;
+}
+
+.show-somecar {
+  padding: 4rem 2rem;
+  background-color: #1f2937;
+  text-align: center;
+  overflow: hidden;
+}
+
+.show-somecar-title {
+  color: #ffffff;
+  font-size: 2.25rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.car-slider-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  overflow: hidden;
+  position: relative;
+}
+
+.car-grid {
+  display: flex;
+  gap: 2rem;
+  animation: slideRightToLeft 24s linear infinite;
+  width: calc(280px * 8 + 2rem * 7); /* 8 cards, 280px each, plus gaps */
+}
+
+.car-card {
+  background-color: #2d3748;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  min-width: 280px;
+  flex-shrink: 0;
+}
+
+.car-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+.car-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.car-card h3 {
+  color: #ffd700;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 1rem 0 0.5rem;
+}
+
+.car-card p {
+  color: #e5e7eb;
+  font-size: 1.125rem;
+  margin-bottom: 1rem;
+}
+
+.car-button {
+  margin: 1rem;
+  padding: 0.5rem 1.5rem;
+  background: linear-gradient(90deg, #ffd700, #d4af37);
+  color: #1f2937;
+  font-weight: 600;
+  font-size: 1rem;
+  border-radius: 9999px;
+  transition: background 0.3s ease, transform 0.3s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.car-button:hover {
+  background: linear-gradient(90deg, #d4af37, #ffd700);
+  transform: translateY(-2px);
+}
+
+@media (min-width: 768px) {
+  .show-somecar-title {
+    font-size: 2.75rem;
+  }
+}
+
+@keyframes slideRightToLeft {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-280px * 4 - 2rem * 4)); /* Move by the width of 4 cards + gaps */
+  }
+}
+
+.car-slider-container:hover .car-grid {
+  animation-play-state: paused;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeInUp {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.delay-100 {
+  animation-delay: 0.1s;
+}
+
+.delay-200 {
+  animation-delay: 0.3s;
+}
+
+.delay-300 {
+  animation-delay: 0.5s;
+}
+
+.min-h-screen {
+  min-height: 100vh;
+}
+
+.bg-black {
+  background-color: #000000;
+}
+
+/* cars */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', sans-serif;
+}
+
+/* Navbar Styles */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #1f2937;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 20;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+nav a {
+  color: #e5e7eb;
+  font-size: 1.125rem;
+  font-weight: 600;
+  text-decoration: none;
+  margin: 0 1.5rem;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+nav a:hover {
+  color: #ffd700;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  nav {
+    padding: 1rem;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  nav a {
+    margin: 0.5rem 0;
+    font-size: 1rem;
+  }
+}
+
+/* Home Component Styles */
+.home-main-div {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  margin-top: 60px;
+}
+
+.home-image {
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
+  transform: scale(1.1);
+  transition: transform 0.5s ease;
+}
+
+.home-main-div:hover .home-image {
+  transform: scale(1.15);
+}
+
+.home-second-div {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  max-width: 600px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 2rem;
+  z-index: 10;
+}
+
+@media (min-width: 768px) {
+  .home-second-div {
+    padding: 4rem;
+    width: 50%;
+  }
+}
+
+.home-second-div h1 {
+  color: #ffffff;
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  letter-spacing: -0.025em;
+}
+
+@media (min-width: 768px) {
+  .home-second-div h1 {
+    font-size: 3.5rem;
+  }
+}
+
+.home-second-div p:first-of-type {
+  color: #ffd700;
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+@media (min-width: 768px) {
+  .home-second-div p:first-of-type {
+    font-size: 1.5rem;
+  }
+}
+
+.home-second-div p:nth-of-type(2) {
+  color: #e5e7eb;
+  font-size: 1rem;
+  line-height: 1.75;
+  max-width: 500px;
+}
+
+@media (min-width: 768px) {
+  .home-second-div p:nth-of-type(2) {
+    font-size: 1.125rem;
+  }
+}
+
+.home-second-div button {
+  margin-top: 2rem;
+  padding: 0.75rem 2.5rem;
+  background: linear-gradient(90deg, #ffd700, #d4af37);
+  color: #1f2937;
+  font-weight: 700;
+  font-size: 1.125rem;
+  border-radius: 9999px;
+  width: fit-content;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  border: none;
+  cursor: pointer;
+}
+
+.home-second-div button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  background: linear-gradient(90deg, #d4af37, #ffd700);
+}
+
+.bg-gradient-overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.3));
+  z-index: 5;
+}
+
+.show-somecar {
+  padding: 4rem 2rem;
+  background-color: #1f2937;
+  text-align: center;
+  overflow: hidden;
+}
+
+.show-somecar-title {
+  color: #ffffff;
+  font-size: 2.25rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.car-slider-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  overflow: hidden;
+  position: relative;
+}
+
+.car-grid {
+  display: flex;
+  gap: 2rem;
+  animation: slideRightToLeft 24s linear infinite;
+  width: calc(280px * 8 + 2rem * 7);
+}
+
+.car-card {
+  background-color: #2d3748;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  min-width: 280px;
+  flex-shrink: 0;
+}
+
+.car-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+.car-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.car-card h3 {
+  color: #ffd700;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 1rem 0 0.5rem;
+}
+
+.car-card p {
+  color: #e5e7eb;
+  font-size: 1.125rem;
+  margin-bottom: 1rem;
+}
+
+.car-button {
+  margin: 1rem;
+  padding: 0.5rem 1.5rem;
+  background: linear-gradient(90deg, #ffd700, #d4af37);
+  color: #1f2937;
+  font-weight: 600;
+  font-size: 1rem;
+  border-radius: 9999px;
+  transition: background 0.3s ease, transform 0.3s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.car-button:hover {
+  background: linear-gradient(90deg, #d4af37, #ffd700);
+  transform: translateY(-2px);
+}
+
+@media (min-width: 768px) {
+  .show-somecar-title {
+    font-size: 2.75rem;
+  }
+}
+
+@keyframes slideRightToLeft {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-280px * 4 - 2rem * 4));
+  }
+}
+
+.car-slider-container:hover .car-grid {
+  animation-play-state: paused;
+}
+
+/* Cars Component Styles */
+.cars-container {
+  padding: 5rem 2rem 4rem; /* Extra top padding for fixed navbar */
+  background-color: #1f2937;
+  min-height: 100vh;
+  text-align: center;
+}
+
+.cars-title {
+  color: #ffffff;
+  font-size: 2.25rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.cars-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  .cars-title {
+    font-size: 2.75rem;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeInUp {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.delay-100 {
+  animation-delay: 0.1s;
+}
+
+.delay-200 {
+  animation-delay: 0.3s;
+}
+
+.delay-300 {
+  animation-delay: 0.5s;
+}
+
+.min-h-screen {
+  min-height: 100vh;
+}
+
+.bg-black {
+  background-color: #000000;
+}
+
+/* add-car */
+.add-car-container {
+  padding: 5rem 2rem 4rem;
+  background-color: #1f2937;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.add-car-title {
+  color: #ffffff;
+  font-size: 2.25rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.add-car-form {
+  background-color: #2d3748;
+  padding: 2rem;
+  border-radius: 12px;
+  max-width: 500px;
+  width: 100%;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.add-car-form div {
+  margin-bottom: 1.5rem;
+}
+
+.add-car-form label {
+  color: #e5e7eb;
+  font-size: 1.125rem;
+  font-weight: 600;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.add-car-form input {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: #374151;
+  border: none;
+  border-radius: 8px;
+  color: #ffffff;
+  font-size: 1rem;
+  transition: box-shadow 0.3s ease;
+}
+
+.add-car-form input:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(255, 215, 0, 0.3);
+}
+
+.add-car-form button {
+  width: 100%;
+  padding: 0.75rem;
+  background: linear-gradient(90deg, #ffd700, #d4af37);
+  color: #1f2937;
+  font-weight: 700;
+  font-size: 1.125rem;
+  border-radius: 9999px;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.add-car-form button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  background: linear-gradient(90deg, #d4af37, #ffd700);
+}
+
+@media (min-width: 768px) {
+  .add-car-title {
+    font-size: 2.75rem;
+  }
+
+  .add-car-form {
+    padding: 2.5rem;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeInUp {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.delay-100 {
+  animation-delay: 0.1s;
+}
+
+.delay-200 {
+  animation-delay: 0.3s;
+}
+
+.delay-300 {
+  animation-delay: 0.5s;
+}
+
+.min-h-screen {
+  min-height: 100vh;
+}
+
+.bg-black {
+  background-color: #000000;
+}
+
+.addbtn{
+    margin-top: 2rem;
+  padding: 0.75rem 2.5rem;
+  background: linear-gradient(90deg, #ffd700, #d4af37);
+  color: #1f2937;
+  font-weight: 700;
+  font-size: 1.125rem;
+  border-radius: 9999px;
+  width: fit-content;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  border: none;
+  cursor: pointer;
+}
