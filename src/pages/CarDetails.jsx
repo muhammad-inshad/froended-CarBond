@@ -10,7 +10,7 @@ function CarDetails() {
     // Fetch car details by ID
     const fetchCar = async () => {
       try {
-        const res = await fetch(`http://localhost:5000/api/cars/${id}`);
+        const res = await fetch(`https://backend-carbond-1.onrender.com/api/cars/${id}`);
         const data = await res.json();
         setCar(data);
       } catch (err) {

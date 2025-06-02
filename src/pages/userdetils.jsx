@@ -28,7 +28,7 @@ useEffect(() => {
     if (!window.confirm("Are you sure you want to delete this user?")) return;
 
     try {
-      const res = await fetch(`http://localhost:5000/api/users/${id}`, {
+      const res = await fetch(`https://backend-carbond-1.onrender.com/api/users/${id}`, {
         method: "POST",
       });
 

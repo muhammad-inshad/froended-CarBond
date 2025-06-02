@@ -11,7 +11,7 @@ function AdminLogin() {
   const loginData = { name, password };
 
   try {
-    const response = await fetch("http://localhost:5000/api/AdminLogin", {
+    const response = await fetch("https://backend-carbond-1.onrender.com/api/AdminLogin", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

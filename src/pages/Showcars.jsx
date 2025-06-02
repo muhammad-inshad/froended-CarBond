@@ -8,7 +8,7 @@ function ShowCars() {
 
   const fetchCars = async () => {
     try {
-      const res = await fetch("http://localhost:5000/api/cars"); // Adjust this to your API
+      const res = await fetch("https://backend-carbond-1.onrender.com/api/cars"); // Adjust this to your API
       const data = await res.json();
       setCars(data);
     } catch (err) {
@@ -22,7 +22,7 @@ function ShowCars() {
     if (!window.confirm("Are you sure you want to delete this car?")) return;
 
     try {
-      const res = await fetch(`http://localhost:5000/api/carsD/${id}`, {
+      const res = await fetch(`https://backend-carbond-1.onrender.com/api/carsD/${id}`, {
         method: "POST",
       });
 

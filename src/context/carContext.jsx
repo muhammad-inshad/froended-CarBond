@@ -14,7 +14,7 @@ export const CarProvider = ({ children }) => {
   useEffect(() => {
     const fetchCars = async () => {
       try {
-        const res = await fetch("http://localhost:5000/api/cars");
+        const res = await fetch("https://backend-carbond-1.onrender.com/api/cars");
         const data = await res.json();
         setCars(data);
       } catch (error) {
@@ -29,7 +29,7 @@ export const CarProvider = ({ children }) => {
 
   const addCar = async (car) => {
     try {
-      const res = await fetch("http://localhost:5000/api/cars", {
+      const res = await fetch("https://backend-carbond-1.onrender.com/api/cars", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
