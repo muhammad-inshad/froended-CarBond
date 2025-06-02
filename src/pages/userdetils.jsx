@@ -8,7 +8,7 @@ function UserList() {
 
   const fetchUsers = async () => {
     try {
-      const res = await fetch("http://localhost:5000/api/users"); // adjust URL as needed
+      const res = await fetch("https://backend-carbond-1.onrender.com/api/users"); // adjust URL as needed
       const data = await res.json();
       setUsers(data);
     } catch (err) {
